@@ -1,0 +1,13 @@
+
+table{
+   margin-top: 40px;
+   text-align: center;
+}
+
+#Vis-Billett th, #Vis-Billett td{
+   padding: 15px;
+}
+
+#KjopBillett td input{
+   width: 50%;
+}
