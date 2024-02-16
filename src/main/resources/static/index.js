@@ -2,24 +2,26 @@ function validerFornavn(Fornavn){
     let regexp = /^[a-zA-ZæøåÆØÅ .\-]{2,20}$/;
     let ok = regexp.test(Fornavn);
     if(!ok) {
-        $("#feilNavn").html("Fornavn må bestå av 2 til 20 bokstaver");
+        $("#feilFornavn").html("Fornavn må bestå av 2 til 20 bokstaver");
         return false;
     }
     else {
-        $("#feilNavn").html("");
+        $("#feilFornavn").html("");
         return true;
     }
 }
 
 
 
-function validerAlternativer(){
-    if (document.getElementById('Alternativer').selectedIndex !== "Velg film her") {
+function validerAlternativer(Alternativ){
+    console.log(Alternativ)
+    if (Alternativ !== "Velg film her") {
+        $("#feilAlternativ").html("");
+        return true;
+    } else {
         $("#feilAlternativ").html("Velg en av filmene");
         return false;
     }
-    return true;
-
 }
 function validerAntall(Antall){
     let regexp = /^[0-9]{1,2}$/;
@@ -78,9 +80,10 @@ function ValiderOgKjopbillett() {
     let EtternavnOK = validerEtternavn($("#Etternavn").val());
     let TelefonnrOK = validerTelefonnr($("#Telefonnr").val());
     let EpostOK = validerEpost($("#Epost").val());
+
+
     if (AlternativerOK && AntallBilletterOK && FornavnOK && EtternavnOK && TelefonnrOK && EpostOK) {
         Addrow();
-
     }
 }
 
@@ -122,4 +125,19 @@ function Addrow(){
 
     n++;
     x++;
+}
+
+function SlettBillett(){
+    let Addrow = document.getElementById('Vis-Billett');
+    for(i = x; i > 0; i--){
+        Addrow.deleteRow(i)
+    }
+    list1 = [];
+    list2 = [];
+    list3 = [];
+     list4= [];
+     list5 = [];
+     list6 = [];
+    n = 1;
+    x = 0;
 }

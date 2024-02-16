@@ -15,19 +15,19 @@
                     <th>Velg Film:</th>
                    <td>
                        <label for="Alternativer"></label><select id="Alternativer" name="Alternativer" onchange="validerAlternativer(this.value)">
-                        <span id="feilAlternativ" style="color: red"></span>
-                        <option value="Velg film her">velg film her</option>
+                        <option value="Velg film her">Velg film her</option>
                         <option value="Shrek">Shrek</option>
                         <option value="Oppenheimer">Oppenheimer</option>
                         </select>
                    </td>
+                    <td><span id="feilAlternativ" style="color: red"></span></td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>Antall: </th>
                     <td><label for="Antall"></label><input type="number" name="Antall" id="Antall" style="width: 40px" onchange="validerAntall(this.value)"></td>
-                    <td><span id="feilAnatall" style="color: red"></span></td>
+                    <td><span id="feilAntall" style="color: red"></span></td>
                 </tr>
                 <tr>
                     <th>Fornavn: </th>
@@ -67,5 +67,8 @@
                 </tr>
             </thead>
         </table>
+        <tr id="SlettBillett">
+            <td colspan="2"><input type="Button" name="Button" id="SlettButton" value="Slett Billett" onclick="SlettBillett()"></td>
+        </tr>
     </body>
 </html>
