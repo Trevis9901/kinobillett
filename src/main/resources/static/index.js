@@ -87,12 +87,18 @@ function ValiderOgKjopbillett() {
     }
 }
 
-let list1 = [];
-let list2 = [];
-let list3 = [];
-let list4= [];
-let list5 = [];
-let list6 = [];
+let billetter  = []
+
+class Billett{
+    constructor(film, antall, fornavn, etternavn, telefonnr, epost){
+        this.film=film
+        this.antall=antall
+        this.fornavn=fornavn
+        this.etternavn=etternavn
+        this.telefonnr=telefonnr
+        this.epost=epost
+    }
+}
 
 let n = 1;
 let x = 0;
@@ -101,12 +107,15 @@ function Addrow(){
     let Addrow = document.getElementById('Vis-Billett');
     let NyRow = Addrow.insertRow(n);
 
-    list1[x]= document.getElementById("Alternativer").value;
-    list2[x]= document.getElementById("Antall").value;
-    list3[x]= document.getElementById("Fornavn").value;
-    list4[x]= document.getElementById("Etternavn").value;
-    list5[x]= document.getElementById("Telefonnr").value;
-    list6[x]= document.getElementById("Epost").value;
+    const film = document.getElementById("Alternativer").value;
+    const antall = document.getElementById("Antall").value;
+    const fornavn = document.getElementById("Fornavn").value;
+    const etternavn= document.getElementById("Etternavn").value;
+    const telefonnr= document.getElementById("Telefonnr").value;
+    const epost= document.getElementById("Epost").value;
+
+    const billett=new Billett(film,antall,fornavn,etternavn,telefonnr,epost)
+    billetter.push(billett)
 
 
     let cel1 = NyRow.insertCell(0);
@@ -116,12 +125,12 @@ function Addrow(){
     let cel5=NyRow.insertCell(4);
     let cel6=NyRow.insertCell(5);
 
-    cel1.innerHTML=list1[x];
-    cel2.innerHTML=list2[x];
-    cel3.innerHTML=list3[x];
-    cel4.innerHTML=list4[x];
-    cel5.innerHTML=list5[x];
-    cel6.innerHTML=list6[x];
+    cel1.innerHTML=billett.film;
+    cel2.innerHTML=billett.antall;
+    cel3.innerHTML=billett.fornavn;
+    cel4.innerHTML=billett.etternavn;
+    cel5.innerHTML=billett.telefonnr;
+    cel6.innerHTML=billett.epost;
 
     n++;
     x++;
@@ -132,12 +141,7 @@ function SlettBillett(){
     for(i = x; i > 0; i--){
         Addrow.deleteRow(i)
     }
-    list1 = [];
-    list2 = [];
-    list3 = [];
-     list4= [];
-     list5 = [];
-     list6 = [];
-    n = 1;
-    x = 0;
+    billetter=[];
+    n=1;
+    x=0;
 }
